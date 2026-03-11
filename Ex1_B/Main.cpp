@@ -27,8 +27,8 @@ int main()
 	for (int i = 0; i < SIZE; i++)
 	{
 		cout << "Enter name and grade for student " << i+1 << ":" << endl;
+
 		char n[21];
-		//cin >> n;
 		cin.getline(n, 21);
 		arr[i].setName(n);
 		
@@ -37,6 +37,9 @@ int main()
 		arr[i].setGrade(g);
 
 		arr[i].inputMarks();
+
+		// This clears the newline character so the next getline works!
+		cin.ignore(1000, '\n');
 	}
 
 	for (int i = 0; i < SIZE; i++)

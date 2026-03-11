@@ -22,16 +22,20 @@ int main()
 	//input loop
 	for (int i = 0; i < SIZE; i++)
 	{
-		int g;
-		char n[21];
 		cout << "Enter name and grade for student " << i + 1 << ":" << endl;
-		cin >> n >> g;
-
+		
+		char n[21];
+		cin.getline(n, 21);
 		arr[i].setName(n);
+
+		int g;
+		cin >> g;
 		arr[i].setGrade(g);
 
-		cout << "Enter 10 grades for student " << i + 1 << ":" << endl;
 		arr[i].inputMarks();
+
+		// This clears the newline character so the next getline works!
+		cin.ignore(1000, '\n');
 	}
 
 	//output loop
