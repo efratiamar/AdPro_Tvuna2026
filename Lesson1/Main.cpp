@@ -36,6 +36,8 @@ int main()
 	//r2.width = 3;
 	//r2.printArea(); //Area: 12
 
+
+	r2 = r1;
 	
 
 	//Rect* pR2 = new Rect;
