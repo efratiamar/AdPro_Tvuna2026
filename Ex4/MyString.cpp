@@ -1,20 +1,20 @@
 #include "MyString.h"
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <cstring>
 #include <string>
 using namespace std;
 
 MyString::MyString(const char* s)
 {
-	str = new char[strlen(s)];
+	str = new char[strlen(s) + 1];
 	strcpy(str, s);
 }
 
 MyString::MyString(const MyString& other)
 {
-	str = new char[strlen(other.str)];
+	str = new char[strlen(other.str) + 1];
 	strcpy(str, other.str);
-
 }
 
 MyString::~MyString()
@@ -35,7 +35,8 @@ int MyString::length() const
 
 void MyString::print() const
 {
-	cout << str;
+	if (str)
+		cout << str;
 }
 
 MyString& MyString::operator=(const MyString& other)
@@ -57,7 +58,8 @@ bool MyString::operator==(const MyString& other) const
 
 bool MyString::operator!=(const MyString& other) const
 {
-	return strcmp(str, other.str) != 0;
+	//return strcmp(str, other.str) != 0;
+	return !(*this == other)
 }
 
 bool MyString::operator<(const MyString& other) const

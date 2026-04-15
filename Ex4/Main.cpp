@@ -39,7 +39,7 @@ string reverseWords(string str)
 
 int main()
 {
-	MyString ms("abc dkfbd &*R#*");
+	MyString ms("abc");
 
 	MyString ms2;
 
@@ -49,13 +49,27 @@ int main()
 	{
 
 	}
+	MyString ms3("--sdf");
 
-	ms2 = ms2 + ms;
+	ms2 = ms + ms3; //"abc--sdf"
+
+	ms2 = ms * 3; //abcabcabc
 
 	string s1 = "fffffff dsgsdgs";
-	cout << s1.at(5);
+	s1 = "ssdg" + "sgdgsd";
+	string s2;
+	s2 += s1;
+
+
+	cout << s1.at(0);
 
 	cout << s1[3];
+
+	s1.push_back('A');
+
+	s1.clear();
+	s1 = "";
+	s1.
 
 
 
