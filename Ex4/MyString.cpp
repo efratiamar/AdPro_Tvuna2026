@@ -94,5 +94,17 @@ MyString MyString::operator*(const int num)
 	return s;
 }
 
+ostream& operator<<(ostream& os, const MyString& ms)
+{
+	os << other.str;
+	return os;
+}
+
+istream& operator>>(istream& is, MyString& ms)
+{
+	is >> other.str;
+	return is;
+}
+
 
 

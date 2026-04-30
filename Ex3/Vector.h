@@ -1,3 +1,7 @@
+#include <iostream>
+#include <fstream> //Ex5
+using namespace std;
+
 class Vector
 {
 	int* vec;
@@ -25,4 +29,9 @@ public:
 
 	void sort();
 
+	friend ostream& operator<<(ostream& os, const Vector& v);
+	friend istream& operator>>(istream& is, Vector& v);
+
 };
+
+

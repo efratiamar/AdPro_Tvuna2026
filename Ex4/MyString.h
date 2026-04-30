@@ -23,4 +23,11 @@ public:
 	MyString operator+(const MyString& other) const;
 	MyString operator*(const int num);
 
+	friend ostream& operator<<(ostream& os,  const MyString& ms);
+	friend istream& operator>>(istream& is, MyString& ms);
+
+	
+
 };
+
+

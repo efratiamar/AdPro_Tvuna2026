@@ -69,7 +69,11 @@ int main()
 
 	s1.clear();
 	s1 = "";
-	s1.
+
+	cout << ms2;
+	cin >> ms3;
+	
+
 
 
 

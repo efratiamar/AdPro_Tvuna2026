@@ -1,9 +1,52 @@
 #include "Vector.h"
 #include <iostream>
+#include <fstream> //Ex5
 using namespace std;
 #include <time.h>
 
+int Ex5()
+{
+	string fileName;
+	cout << "enter a file name";
+	cin >> fileName; //numbers.txt
+
+	ifstream fin(fileName);
+	if (!fin) {
+		cout << "cannot open the file";
+		return -1;
+	}
+	
+	int num;
+	Vector v1;
+	fin >> num;
+	while (!fin.eof())
+	{
+		v1.addLast(num);
+		fin >> num;
+	}
+	fin.close();
+	
+	v1.sort();
+
+	ofstream fout(fileName); //numbers.txt
+	if (!fout) {
+		cout << "cannot open the file";
+		return -1;
+	}
+	fout << v1;
+	fout.close();
+
+	return 0;
+}
+
 int main()
+{
+	//Ex3();
+	Ex5();
+}
+
+
+void Ex3()
 {
 	srand(time(nullptr));
 	
@@ -27,6 +70,10 @@ int main()
 
 	v1.clear();
 	v1.print();
+
+	cout << v1; 
+
+	cin >> v1;
 }
 
 /*

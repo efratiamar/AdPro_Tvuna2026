@@ -101,3 +101,24 @@ void Vector::sort()
 		vec[j + 1] = key;
 	}
 }
+
+
+ostream& operator<<(ostream& os, const Vector& v)
+{
+	for (int i = 0; i < v.size; i++)
+	{
+		os << v.vec[i] << " ";
+	}
+	os << endl;
+
+	return os;
+}
+
+istream& operator>>(istream& is, Vector& other)
+{
+	for (int i = 0; i < other.size; i++)
+	{
+		is >> other.vec[i];
+	}
+	return is;
+}
