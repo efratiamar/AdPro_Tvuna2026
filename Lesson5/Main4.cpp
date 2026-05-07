@@ -5,10 +5,8 @@ using namespace std;
 #include "Point.h"
 #include "Circle.h"
 
-
 int sample9()
 {
-
 	// option A
 	ofstream fout;
 	fout.open("points.txt");
