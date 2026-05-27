@@ -1,7 +1,10 @@
 #pragma once
+#include <iostream>
+using namespace std;
 
 class List
 {
+protected:
 	//inner class
 	class Link
 	{

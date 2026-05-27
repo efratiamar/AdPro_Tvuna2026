@@ -1,5 +1,3 @@
-#include <iostream>
-using namespace std;
 #include "List.h"
 
 List::Link::Link(int k, Link* n)
@@ -7,7 +5,7 @@ List::Link::Link(int k, Link* n)
 {}
 
 List::List()
-	: head(nullptr)
+: head(nullptr)
 {}
 
 List::List(const List& other)
@@ -17,16 +15,18 @@ List::List(const List& other)
 		head = nullptr;
 		return;
 	}
-	Link* p = other.head;
-	Link* prev = new Link(p->key, nullptr);
-	head = prev;
-	p = p->next;
-	while (p)
+
+	Link* pOther = other.head;
+
+	Link* newL = new Link(pOther->key, nullptr);
+	head = newL;
+
+	while (pOther->next)
 	{
-		Link* newL = new Link(p->key, nullptr);
+		Link* prev = newL;
+		newL = new Link(pOther->next->key, nullptr);
 		prev->next = newL;
-		prev = newL;
-		p = p->next;
+		pOther = pOther->next;
 	}
 }
 
@@ -42,62 +42,63 @@ bool List::isEmpty() const
 
 void List::addFirst(int value)
 {
-	Link* newL = new Link(value, head);
-	head = newL;
+	head = new Link(value, head);
 }
 
 void List::removeFirst()
 {
 	if (isEmpty())
-		throw "Error: cannot remove from empty list!";
-
-	Link* temp = head->next;
-	delete head;
-	head = temp;
+		throw "Error: cannot remove from empty list";
+	Link* first = head;
+	head = head->next;
+	delete first;
 }
-
 int List::firstElement() const
 {
 	if (isEmpty())
-		throw "Error: empty list!";
+		throw "Error: cannot return frist value of empty list";
 	return head->key;
 }
 
 bool List::search(const int& value) const
 {
 	Link* p = head;
+
 	while (p)
 	{
 		if (p->key == value)
 			return true;
 		p = p->next;
 	}
+
 	return false;
 }
 
 void List::clear()
 {
-	if (!isEmpty())
-	{
-		Link* p = head;
-		while (p->next != nullptr)
-		{
-			Link* temp = p;
-			p = p->next;
-			delete temp;
-			head = p;
-		}
-		delete p;
-		head = nullptr;
-	}
+	while (!isEmpty())
+		removeFirst();
+
+	//option 2
+	//Link* p = head;
+
+	//while (p)
+	//{
+	//	Link* next = p->next;
+	//	delete p;
+	//	p = next;
+	//}
+	//head = nullptr;
 }
+
 
 ostream& operator<<(ostream& os, const List& other)
 {
 	List::Link* p = other.head;
+
 	while (p)
 	{
-		os << p->key << " ";
+		os << p->key << ' ';
 		p = p->next;
 	}
 	os << endl;

@@ -1,16 +1,19 @@
 #pragma once
+#include <iostream>
+using namespace std;
 
 class List
 {
+protected:
 	//inner class
 	class Link
 	{
 	public:
 		int key;
 		Link* next;
-		Link(int k = 0, Link* n = nullptr);
+		Link(int k=0, Link* n=nullptr);
 	};
-	
+
 	Link* head;
 
 public:
@@ -27,3 +30,4 @@ public:
 	friend ostream& operator<<(ostream& os, const List& other);
 
 };
+//cout << ls;
