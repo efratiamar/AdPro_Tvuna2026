@@ -105,6 +105,4 @@ int main()
 	s1.push('B');
 
 	//stack<char>::iterator itS; //cannot!!
-
-
 }
